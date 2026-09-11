@@ -30,29 +30,6 @@ const AddBookForm = () => {
     }
   };
 
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     try {
-//       const response = await fetch(
-//         "https://be4assignment1-one.vercel.app/books", 
-//         {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify(formData),
-//         }
-//       );
-//       if (!response.ok) {
-//         throw new Error("Failed to add book");
-//       }
-//       const data = await response.json();
-//       console.log("Added Book", data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
 const handleSubmit = async (event) => {
     event.preventDefault();
   
