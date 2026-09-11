@@ -26,7 +26,7 @@ const Books = () => {
 
   const handleDelete = async (bookId) => {
     try {
-      const response = await fetch(`https://8e642f54-f184-4b46-8429-30553e12739b-00-2eurj0kurc5wi.sisko.replit.dev/books/${bookId}`, {
+      const response = await fetch(`https://be4assignment1-one.vercel.app/books/${bookId}`, {
         method: "DELETE",
       });
 
