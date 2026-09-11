@@ -7,7 +7,7 @@ const AddBookForm = () => {
     publishedYear: "",
     genre: [],
     language: "",
-    country: "United States",
+    country: "",
     rating: 0,
     summary: "",
     coverImageUrl: "",
