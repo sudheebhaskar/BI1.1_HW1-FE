@@ -1,22 +1,37 @@
-import useFetch from "../useFetch"
+import useFetch from "../useFetch";
 
-const BookByTitle = ({title}) => {
+const BookByTitle = ({ title }) => {
+  const { data, loading, error } = useFetch(
+    `https://be4assignment1-one.vercel.app/books/title/${encodeURIComponent(title)}`
+  );
 
-    const {data, loading, error} = useFetch(`https://be4assignment1-one.vercel.app/books/title/${title}`);
-    return(
-       <div>
-        {
-            data ? ( 
-                <div>
-                    <h2><strong>{data.title}</strong></h2>
-                     <p><strong>Author:</strong> {data.author}</p>
-                    <p><strong>Release Year:</strong> {data.publishedYear}</p>
-                    <p><strong>Genre:</strong> {data.genre.join(", ")}</p>
-                </div>
-            ) : <p>Loading....</p>
-        }
-       </div>
-    )
-}
+  return (
+    <div>
+      {loading && <p>Loading...</p>}
+
+      {error && <p>{error}</p>}
+
+      {data && !data.error && (
+        <div>
+          <h2>
+            <strong>{data.title}</strong>
+          </h2>
+
+          <p>
+            <strong>Author:</strong> {data.author}
+          </p>
+
+          <p>
+            <strong>Release Year:</strong> {data.publishedYear}
+          </p>
+
+          <p>
+            <strong>Genre:</strong> {data.genre?.join(", ")}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default BookByTitle;

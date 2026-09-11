@@ -1,9 +1,8 @@
-
 import useFetch from "../useFetch";
 
 const BookByAuthor = ({ author }) => {
   const { data, loading, error } = useFetch(
-    `https://be4assignment1-one.vercel.app/books/author/${author}`
+    `https://be4assignment1-one.vercel.app/books/author/${encodeURIComponent(author)}`
   );
 
   return (
@@ -12,7 +11,7 @@ const BookByAuthor = ({ author }) => {
 
       {error && <p>Error: {error}</p>}
 
-      {data && (
+      {data && !data.error && (
         <>
           <h2>Books by {author}</h2>
 
